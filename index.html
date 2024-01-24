@@ -1,178 +1,686 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Display</title>
-</head>
-<body>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>僕のPCにはいつもGNU&#x27;s Not Unix！    令和新版    </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
 
-  <p>以下は例です:</p>
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
 
-  <pre>
-    <code>
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b321143d-d920-4f5e-8d4f-a891bf90e284" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_the_blue_marble.jpg" style="object-position:center 47.72%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🥷🏿</span></div><h1 class="page-title">僕のPCにはいつもGNU&#x27;s Not Unix！    令和新版    </h1><p class="page-description"></p></header><div class="page-body"><p id="0492ab0d-3919-4080-bf84-2d2fcabab2de" class="">
+</p><h3 id="c1c8af79-b5d7-43fc-97ab-e39840600171" class="">GNU４０周年に捧げる&quot;GNU 40th Anniversary Tribute&quot;</h3><h3 id="b75ba1dd-f17e-46d8-b9ce-96e0ac626d80" class=""><br/>アンドロイド＆バザール＆カンファレンス限定配布ディストリビューション<br/></h3><h3 id="980d719a-fdb3-4c00-89b7-dc5034dc6227" class=""><br/>永遠のアスリート<br/>エンジニアになるため<br/>ふりだしに戻ろう<br/></h3><p id="340a1a3d-3262-4580-8aa1-d8f6fb24e1c0" class="">
+</p><h1 id="9a708665-0579-4b9c-abda-9b8ac7e125d6" class="">目次</h1><h3 id="f3fe682c-876a-4f37-a7e0-622604fcf97f" class="">GNU/Linuxとは何か？</h3><h3 id="465eb0f6-ca3a-41bf-a40e-96046c048a75" class="">GPLバージョン３について</h3><h3 id="aa914439-aedb-483b-baab-bed12b2cca54" class="">なぜNot Unixなのか？</h3><h3 id="75d1edaa-f237-4350-91db-47df79ad6b60" class="">『仕事は簡単でも簡単にやらない』　元上司</h3><h3 id="25f06ab5-c7fb-4604-95fc-5ffd5799f93d" class="">『何かを得意になるのじゃなく、何かを学ぶのを得意とせよ』　中島聡ウィンドウズの父</h3><h3 id="17fa4787-3ec4-405e-90a0-7796912ffa8c" class="">gitを毎日つかう。</h3><h3 id="0c11b1fc-9492-4865-9486-2c6735f82b56" class="">技術ブログを書く。</h3><h3 id="56c1fe76-5d19-4a9b-b990-0c9566601ecc" class="">初心を忘るべからず。</h3><h3 id="303e4625-8ca0-46c7-af51-821facdf0bf9" class="">エラーとトライを恐れない。</h3><h3 id="f52240ce-254b-4c5a-a734-65ba2d7bf3bd" class="">精神論でやらない。</h3><h3 id="bf9b6f43-46f0-43fe-9eb9-28d048fed5db" class="">オープンソース活動へ協賛しない。</h3><h3 id="ea212a56-af3b-4b63-bf1e-bac7c76882c5" class="">二年に一度、新しい言語を覚える（達人プログラマー）</h3><h3 id="b9a9563a-0552-4788-a986-7c576fa29883" class="">勉強だと思わず計算機科学を学ぶ。</h3><h3 id="e640a2d8-5891-44ea-bfe2-9a7b7320c2aa" class="">ハードワークは報われない（プログラマが知るべき97のこと）</h3><h3 id="1753cc26-f66e-4e33-b965-888746666f4b" class="">真実を語るのはコードのみと知る。（プログラマが知るべき97のこと）</h3><h3 id="d10ec779-1143-45f0-b46c-d5bb055a7f93" class="">できても「できる」といわない。</h3><h3 id="a943bf1a-96ca-462c-a573-7c087922c552" class="">Do or do not! There is no try.(やるかやらぬかじゃ、やってみるなどない)</h3><h3 id="c046fe56-b79b-4951-a98a-d4b0b1844f2f" class="">過去の偉業にとらわれない。</h3><h3 id="0e845ad1-3c13-4321-9f3d-418be0452283" class="">リリースノート・原典を読む。</h3><h3 id="016036cb-ce60-481b-9049-22acbbd898b4" class="">マイクロソフトとの関係。</h3><p id="ac1a5680-0c9f-44c8-8434-ebfff0197664" class=""><br/><br/><br/></p><p id="0deaacba-c01e-43bc-9a68-5c564dbadd85" class="">GNU４０周年に捧げる</p><p id="d2685f07-7bdb-4340-9614-90394af84175" class="">&quot;GNU 40th Anniversary Tribute&quot;</p><p id="dada540e-802f-42b3-9718-1f6e878500ec" class="">アンドロイド＆バザール＆カンファレンス限定配布ディストリビューション</p><p id="02c25076-14d6-456a-af70-1104d2ffff02" class="">令和傾帝版<br/>僕のPCにはいつもGNU&#x27;s Not Unix<br/></p><p id="bd5687e9-c1df-48a6-a2d3-258242e74154" class="">永遠のアスリート・エンジニアになるために…。ふりだしに戻ろう。</p><h3 id="e9de89a2-1f30-49f0-be12-537765c754a5" class=""></h3><p id="28921a4f-fb4b-4fa9-82b8-f886ddf574db" class="">電車の中で書いているのだけれども、　Emacs使って。　なんでEmacsなのかというと、<br/>いわゆる今、使っているGNU/LinuxがEmacsから始まったから、GNUやらJavaやら<br/>使うとEmacsは避けて通れない（最近は普通に避けて通れるけども）<br/></p><p id="92ffbfd9-f3cf-4e5b-aa2f-c1b8eceb2500" class="">プログラミング言語、松本氏も作者もEmacsが無ければrubyは誕生しなかったといわれる<br/>ぐらい。<br/></p><p id="7469cad0-878e-4ba1-aafb-2b5fc75eaef3" class="">何かしら私用しているソフトウエアでこのEmacsは強力に半ば強引に依存している。</p><p id="91a69e13-79db-4fe1-8908-4e9fe1c8de1d" class="">しかし、Emacsに関しては逆の意見もある。　Emacsを使うなというジェームズゴズリング氏の<br/>発言だ。<br/>過去にミスターEmacsといわれ、現在はJavaの父として、いわれている方なので<br/></p><p id="a3c79ae7-3fba-40c6-aa49-84d49f93dafa" class="">発表当時の発言はセンセーショナルなものであった。</p><p id="72e9ea74-461b-48eb-b826-0c27726355b7" class="">そもそもGnuシステムというのがなんなのか。ということだけれども、幾人もの諸先輩方が<br/>解説されている<br/></p><p id="5a573606-12cf-4ed1-aaa2-dd0b1defb6e1" class="">話が長くなりそうなので、結論としてEmacsがあってGNUがあるから、今のソフトウエア開発が<br/>あるぐらいのものだということ。<br/></p><p id="a78b9184-64cd-4ee3-ae40-1316921c00f1" class="">それを知らされていないか、知っても、どうしようもないか。あまり気にしないか<br/>のどちらかだろうと思う。<br/></p><p id="c0eb5ec1-5c91-4735-9c2b-5420ceffeeb0" class="">ということは、どういうことかというと、このGNU Emacsが使えれば、GNUシステムほぼ全て使えるということなのだ。</p><p id="50472976-d247-47b5-a228-27081da9102f" class="">そもそもVIが使い辛いからEmacsを作ったというけれども、　もとのEmacs マクロ集なので<br/>もともと、<br/></p><p id="cc1409be-f2ef-459f-b254-82e7071de74e" class="">よくVIMはどこでも使えれるというが、それはUNIX系のOSではと続く。　どもマシンでも動くという<br/>Javaみたいなことをいっているものは存在しない。<br/></p><p id="f1048447-9aa7-45fe-8f79-e8420cb8eff9" class="">近いとすればEmacsになるはずだ。</p><p id="6a874f63-3736-4e5e-aa8b-dd18db607472" class="">これは</p><p id="7aa1207e-c417-4783-936c-52686c418bd2" class="">自分は恐怖でしかなかった。　ワード・Excel・パワーポイントを使うことに<br/>そして、このまま、年をとって、パチパチ、キーボードを押している人間に。<br/></p><p id="2919edae-a270-4587-b572-90e7977dffc2" class="">どうしたら、いわゆるExcelエンジニアに</p><p id="06783c98-7c5f-45c8-b726-764144a05138" class="">永遠のアスリート『エンジニア』になるために<br/>どうすればいいのか？<br/></p><p id="ac8db6cd-fe8e-4a27-b86e-067e04f2a45c" class="">Excelネ申にならないために…<br/>引退のないアスリート。<br/>ロードマップのなき、<br/>エンジニアとなるために。<br/></p><p id="19f42825-b8b8-4e0a-97e4-083408fc2b4e" class="">教える側にも問題がある。</p><p id="b65df267-ffdc-4150-9db2-8fc7617ca2dd" class="">CADができないも何も、そもそも製図ができるのか？という問題がある。<br/>だって、たとえば、縫いぐるみＣＡＤをやろうたって、そもそも、<br/>縫いぐるみを知らなければ、縫いぐるみＣＡＤできるわけがない。<br/></p><p id="afe85504-07b4-43f5-a70d-5e246d8acaa6" class="">建築ＣＡＤだって、建築を知らない人が</p><p id="d5ebb987-d370-49c1-9c17-fa54887cc9f4" class="">英語で食事に誘うばあい。</p><p id="1ac97c0f-69dc-4f0e-91f8-90df176ca2cd" class="">必要な英語は何かと考える。<br/>　<br/>　飲食店の英語、　ギャルソンを呼ぶ英語、　料理の英語。　誘うための英語。<br/></p><p id="ed267667-b35f-4d77-9d88-8ca9b9fe2b28" class="">そういうことだ。</p><p id="a4df351e-6fe0-433e-8039-68c9409b5305" class="">日本語を覚える場合、文法などを覚えているわけではない。<br/>例えば、子供が自動車のことを「ブーブー」、「ガーガー」という<br/>これは、ブーブ、ガーガーというものだという認識を固める。<br/>ガンキャノンだとかショベルカーだとか、フェラーリーだとかMINIだとかは、その後だ。<br/></p><p id="7777b914-7d70-4d49-919a-5c204612ca89" class="">これは自身の反省をこめて書く。</p><p id="fb6584d8-1a2d-4e07-a40a-83929829cfc0" class="">・『仕事は簡単でも簡単にやらない』　元上司</p><p id="a5b0451a-927f-493c-84d5-5c73ddf17bf7" class="">・『何かを得意になるのじゃなく、何かを学ぶのを得意とせよ』　中島聡ウィンドウズの父</p><p id="13d36ae8-9d5c-4bb5-9e9a-b81737cbe4ba" class="">・gitを毎日つかう。</p><p id="e92af1bc-26a8-459a-adf3-4bdfe388d37a" class="">・技術ブログを書く。</p><p id="7e9f9aed-6e14-4d8c-9182-19de896c1fff" class="">・初心を忘るべからず。</p><p id="c08aebdc-8093-4662-923d-e2b4a63753e6" class="">・エラーとトライを恐れない。</p><p id="0bb68da9-3fd8-4964-bd3e-406ba26818cb" class="">・精神論でやらない。</p><p id="3be6b872-515d-4159-88db-cf4b150c2bbf" class="">・オープンソース活動へ協賛しない。</p><p id="e7ec4d78-8e92-4c79-a0c6-ec03a9f6e87d" class="">・二年に一度、新しい言語を覚える（達人プログラマー）</p><p id="3524a150-255d-45e7-967e-b2c95c44c434" class="">・勉強だと思わず計算機科学を学ぶ。</p><p id="3b4372ac-e53a-47d9-b643-532028277cec" class="">・ハードワークは報われない（プログラマが知るべき97のこと）</p><p id="6f1658ca-0b0e-45e5-844f-f4659b42025b" class="">・真実を語るのはコードのみと知る。（プログラマが知るべき97のこと）</p><p id="6e30cb3b-c527-491d-a1ba-cdd243b0a11f" class="">・できても「できる」といわない。</p><p id="8014ec8e-aeb8-4d1d-9b3e-34a287c4493b" class="">・Do or do not! There is no try.(やるかやらぬかじゃ、やってみるなどない)</p><p id="91c59e00-f5b3-43d5-b7cd-168ef8d4f3e4" class="">・過去の偉業にとらわれない。</p><p id="ec1999f9-5d44-4eb1-aed7-c9d8b03bd9e6" class="">・リリースノート・原典を読む。</p><p id="abf49f59-79bf-47ff-8613-15f914b5b884" class="">・マイクロソフトとの関係。</p><p id="91343522-7675-450f-9a01-262e8120e72f" class="">自己PR</p><p id="3bc1a379-9144-4d1a-9ec1-96f1e016c356" class="">自己紹介</p><p id="c1e2850c-d920-4a46-9869-b32a1d45ef4a" class="">時系列にかく。</p><p id="a3a1384e-3cda-48f1-84b5-284aa34e82e4" class="">相談する人はいますか。</p><p id="5604a685-37e4-4f56-88f2-0ae2d442a5d4" class="">韓国It大臣のオードリ・ターン　MITの伊藤穣一の<br/>ようになってしまえばファミコン全国大会出場だとか、<br/>過去の栄光なんてどうでもよくなってしまうはずだ。<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="723528f8-48fc-401d-a930-2b48951f1bdf" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all"> 生涯現役アスリート。
+ それがエンジニア。
+</code></pre><p id="8b7c978c-05cb-4cbe-b4f0-983dd7fc2643" class="">ITはやるべきものでなく、<br/>やらなくてはならないもの。<br/></p><p id="6d87d29f-e10d-41f7-b3d6-27edb680dcb3" class="">読み書き語学より必須な<br/>一般教養。<br/></p><p id="b8e4e00e-8993-4484-a6e9-6d566a846a97" class="">スタジオジブリよりも重要な義務教育。</p><p id="8dba9b1e-2371-4afb-aa6e-6677d4236999" class="">両手両足もいで</p><p id="8f4cbf6d-c485-4cb3-b4f6-4d7261e15aef" class="">ワールドカップに目隠しして<br/>ヘディングだけで勝負に<br/>出るようなもの。<br/></p><p id="b9914dc8-2b21-4518-bc1f-ada83f55b3ee" class="">それでは何をしたってうまくいなかい。</p><p id="6101e6de-82be-4a5b-b53c-c6299e01307d" class="">ITは、火の発見。電気の発明、青色ダイオードの開発より重要なこと。</p><p id="5a3a1d19-d14d-4ddf-ac33-dbd51907445e" class="">一般企業がDXだ。ICTだの、キントーンだとやっているときに、ボール一つにキリキリ舞いしていたんだから<br/>そりゃ何をしたって無理というもの。<br/></p><p id="c1f3dd0f-c696-48c5-bfc6-28e214717826" class="">エンジニアは<br/>寝ている時でさえ<br/>よりよくすること。<br/>研ぎ澄ますことを<br/>システムを<br/>考えている。<br/>競技アスリートと<br/>違い。<br/></p><p id="c9a0226b-6300-4263-bfc2-43294e169cc2" class="">エンジニアは<br/>競技アスリートと違い。<br/>己しかいない。<br/>競う相手さえいない<br/>引退のないアスリートだ。<br/></p><p id="45cc09ee-2ac1-47ee-934e-9576f496fed8" class="">マックブックから<br/>スマートウォッチから<br/>スマホから自動で<br/>動かしている。<br/>そもそも、同意しているから<br/>アカウント持っているので<br/>遠隔操作も同意のうえだ。<br/></p><p id="7dd4997c-9d7b-49e5-88bc-7caafea6a9ce" class="">食べ物にも、</p><p id="290cd1bc-841d-4a8e-9346-1a55fc45aa2f" class="">アマゾンオリジナル次元大介を</p><p id="13a98219-3ad7-4081-bdcd-7352bfd6df0b" class="">缶コーヒーをいただいた。</p><p id="e7019b39-373e-4b13-94f6-6477d92a4f4f" class="">研ぎ澄ます。の意がある<br/>エンジニア。<br/></p><p id="8c30f68b-4611-4a73-84be-a578d2910352" class="">逆ポーランド電卓</p><p id="82806d0b-70e1-4c40-9298-711f7f9439dc" class="">300円の海苔弁と3000円の<br/>海苔弁なにが違うのか。<br/></p><p id="8f3bbd4e-d5e0-417e-a19a-f2a70c3ea48f" class="">などなど。</p><p id="224c5544-79a8-4fce-bd94-7cb2e8052871" class="">常に研ぎ澄ます。</p><p id="f915f921-a6fe-4912-8fb4-de4dd0185669" class="">エンジニアは引退しない<br/>アスリートだ。<br/>２４時間、３６５日、常に<br/>アスリート。<br/></p><p id="e194b660-bda2-41dc-981d-61aa1f1f4da4" class="">エンジニアとは生き方だ<br/>という人もいれば。<br/></p><p id="428288b1-6d9f-4249-9949-4f72a61b5004" class="">知り合いの中国人は<br/>フットサルやるための<br/>腰掛け仕事だと<br/></p><p id="80541d2c-3675-414f-9f41-3c7dd937358a" class="">自分が元Jリーガーであれば<br/>営業している人の仕事を<br/>受けると思う。幼少の頃から<br/>英才教育を受けて、家族総出で<br/>育てられてきたわけだから<br/>いわば、奨学金を受けて生きて<br/>いるようなものだとおもう。<br/></p><p id="92af3470-5e2f-4ce0-b456-9b89cce741ef" class="">バレーボール日本代表選手<br/>のみたいに<br/>一般企業に就職しながら<br/>オフシーズンは業務を行っている<br/>わけでもないと、金銭的対価よりも<br/>社会的価値観のほうが<br/>欲しくなると思う。<br/></p><p id="fed6bd2f-b266-4c7c-b369-616e05d80ece" class="">オープンソースを推奨、強要しない。</p><p id="5ea9e741-94a5-4885-8b2f-466a2c59108e" class="">これはソースコードを公開するというものだけれども、勝手にやっているぶんには良いと思うが、強要したり推奨するのは良くないとしている。</p><p id="3676b6b0-75a3-451a-b2dc-fb615c7ef954" class="">以前、ソフト開発の書籍を数人で書く機会があって、自分以外の全員が本のデータ全てwebで無償公開して巻末に「あなた方も感謝して企業のソースコードを公開してください」と記載すると述べた。<br/>　こんな小学生みたいなこと本気の大人がやることなのか。書籍は著作権だけじゃない。デザイナーだったり編集権だったりいろいろな人が流通して成り立っている。何の権限があって、そんなことできるのだ。著者の権限だけで公開できるものではない。<br/>それに企業の情報公開って、目の前にあるボールペンの設計からインクの配合から公開しろってことになる。何の権限があってそんなことに介入できるのだ。まったく理解できなかったので反対したら、<br/>「君の考えは20世紀末の考え方なんだ我々は新世紀に移行する！」<br/>という訳わかない返答だか罵倒だかわからないこと言われたのでプロジェクトを抜けた。<br/></p><p id="334a87fb-b48a-4444-92aa-4962a03fb575" class="">その後、その本は出版されたがまったくそのようなデータ公開されたり、企業の機密情報を公開することもなかった。当たり前だが編集者も出版社も、私有企業やるわけがない。</p><p id="d59b6a52-0592-42af-8ca7-befffaa2fe12" class="">後日談だが「20世紀末の考え方だ！」と罵倒しておきながら自分達が20世紀末の手法を行っていることにTwitterで謝罪と発言の撤回をしていた。<br/>　あまりにも小学生みたいで連絡も受けるのやめた。<br/></p><p id="1550c77c-e1e6-4e07-ac76-9733a6068b42" class="">トライ・エラーを恐れない</p><p id="5a251e29-815e-4e3e-b494-57cad44b1011" class="">やるべきことをするだけさ。だから</p><p id="56733746-c1a6-45b1-b54b-32a98d467d0f" class="">会社組織なんか<br/>25年前のサポート終了した更新してないシステム。　割れた窓ガラス。修正されないドキュメント。<br/></p><p id="d6ec4748-de30-4163-b8e1-b748dd6c61a9" class="">誰もエラーを吐かない。エラーを出してくれるから<br/>修正できる。<br/></p><p id="7b45e552-53ee-478c-a46d-4ce78d518012" class="">一心に抱き締めて戦ってほしい。</p><p id="3059cf77-5ef1-433f-8189-aa1cb46b8fad" class="">第10条　すべてを忘れる</p><p id="287866d2-0061-4eb5-b01b-e3fa07b398ae" class="">初心忘れるべからず<br/>といっておきながら<br/>すべてを忘れる。<br/></p><p id="a78c3330-b175-42c1-bca6-dc80724b3b50" class="">過去は忘れるというより<br/>今が最高であったら<br/>過去、何をやっていても<br/>関係ないということ。<br/></p><p id="ada8dd5f-a9e4-4a81-b45a-273e4640a66a" class="">手塚治虫の漫画ブッタに<br/>盗賊が弟子になるシーンがある。<br/></p><p id="a00420e9-cf62-42b2-bacc-15b174840e60" class="">「私は誰も殺していない」<br/>と言いなさい<br/>とブッダは言う。<br/></p><p id="84cd39b0-aa22-467f-9ced-275d5884bbe6" class="">スポーツを磨き上げてきた彼らが、今度はITスキルを磨き上げようとしている。興味深いですね。関係者にとっても、まるで麻薬のような感覚が広がるかのように、ドーパミンがたくさん放出されるのではないかと思います。</p><p id="85f31642-0996-4714-850c-2e392d31a67f" class="">「ホストっやってました」と言っても、<br/>ホスト系の仕事？運用のエンジニア？<br/>と聞かれるのがオチ。<br/>元Jリーガーだと言っても<br/>「それが何か？」という世界。<br/>開発では何の役にも立たない。<br/></p><p id="10427963-622b-456d-897c-5d0f5b7ec2d4" class="">オフショアで仕事が減るやら<br/>AIに仕事を奪われることは<br/>昔から言われていること<br/>それに焦点を当てる<br/>必要はないと思います。<br/></p><p id="6ea810a2-9042-44b6-9fb9-966e92c9cef1" class="">これはIT業界に限らず<br/>どの業界でも言えて、<br/>どんなソフトウェア企業も<br/>これについて十分に意識し<br/>先人たちは競争してきた。<br/>Jリーガーまで上り詰めた<br/>ポテンシャルはあるのであれば、<br/>どの業界や、どんなポジションでも<br/>功を奏するはず。<br/></p><p id="91f074d4-2afe-4312-8285-fecd627bdad9" class="">IntelもAMDも分からない<br/>という程度であるのなら、<br/>それに対処するのは<br/>難しいかもしれません。<br/></p><p id="bc6be855-bda8-4dbf-9363-4765517e52f8" class="">しかし基本的な知識があれば<br/>それだけで過去の実績が<br/>ありますので、１から１０までを<br/>最初から教えなくても基礎の教えて<br/>理解と臨場感が身についてしまえば、<br/>後は自動的に功績を上げるのでと<br/>思います。<br/></p><p id="ecd2cff6-074d-4119-8250-4b13316ae25b" class="">QOL（クオリティ・オブ・ライフ）が<br/>低いと過去の功績を活かしたいという<br/>話になるのだと思います。<br/></p><p id="ca84cd61-b00a-4765-8cac-30cf6329ec4e" class="">いまPerlのオードリー・タン（唐宗英）やら<br/>MITの伊藤穣一のようになってしまえば<br/>台湾政府IT大臣だとかやってて。そうなったら<br/>「元サッカー日本代表」だとかいってらんないはず。<br/>そこまでいけば「Jリーガーって何？」となるから<br/>そこを目指すのが良いのではないかと思いました。<br/></p><p id="eb8b47dc-9b04-49cf-a379-a9f755ddc6c8" class="">肩書きはどうでもよくなるでしょう。</p><p id="ce541b32-78ac-4ebc-918e-17ff36fdc9e4" class="">「ホストっやってました」と言っても、ホスト系の仕事？運用のエンジニアのことですか？<br/>と聞かれるのがオチ。 元Jリーガーだと言っても<br/>「それが何か？」という反応が返ってくる世界。そんなことは現場では何の役にも立たない。<br/></p><p id="27e57603-0a3e-444a-8d55-831d83065d92" class="">オフショアで仕事が減ることやAIに仕事を奪われることは昔から言われていますが、<br/>それに注目する必要はありません。これはIT業界に限らず、どの業界でも言えることです。<br/>どのソフトウェア企業も、これについて十分に意識し、先人の方々は競争してきたこと。<br/>Jリーガーまで上り詰めたポテンシャルはあるのだから大丈夫。どの業界や<br/>どんなポジションでも功を奏するはずです。<br/></p><p id="ccd9ca96-511d-44d1-ad96-165952454452" class="">IntelもAMDも分からないというのなら、それには対処し難いかもしれませんが、<br/>基本的な知識があれば、それだけで過去の実績がありますから、<br/>一から１０すべてを最初から教えなくても、基本的な部分さえ教えて<br/>その分野の理解と臨場感が身についてしまえば、後は自動的に達成するはずです。<br/></p><p id="3d0fbc5c-f19e-4dfd-9d56-c5d69675a483" class="">QOL（クオリティ・オブ・ライフ）が低いからこうした話になると思います。<br/>彼等がここで今、Perlのオードリー・タン（唐宗英）やMITの伊藤穣一のように<br/>なってしまえば、元サッカー日本代表だとか、台湾政府IT大臣とかやってたら<br/>Jリーグ何？ということになるでしょう。<br/></p><p id="32d6269c-da63-47f5-82d0-a3d79c5f103a" class="">「ホストっやってました」て言ったってホスト系？運用のエンジニアですか？<br/>と言われるのがオチ。 元Jリーガーと言ったて<br/>「だから何？」という世界。そんなもの現場じゃ何に役にも立たない。<br/></p><p id="f429c414-dbf2-43c2-be81-012aaa214b73" class="">オフショアで仕事が無くなるやらAIで仕事が奪われるなどは昔から言われていることで<br/>眼中に入れることではない。コの業界に限った話ではなく、<br/>そんなことは全ての業界に言えること。どのソフトハウスも<br/>１００も承知で鎬を削ってきているわけだから、<br/></p><p id="5bead427-7969-4aab-bb0c-ebcb79b93e55" class="">Jリーガーまで上りつめたのだから、ポテンシャルはあるわけだから<br/>どの業界の、どのポジションやったってやっていけるはずだ。<br/></p><p id="da11c4b0-fb0f-4ae1-83fe-ce7567f848fd" class="">右も左も分からないインテルもAMDも分からないというのなら<br/>やりようは無いが、基礎的なことを教われは、あとは<br/>そこまで過去にやってきた実績があるわけだから、<br/>１から１０まで教えてなくても基礎部分させ教えれば<br/>その世界観、臨場感が分かれば、勝手に動いていくと思う。<br/></p><p id="2f0d4675-ebae-43b5-85eb-336b0f99abe0" class="">QOL（クオリティ・オブ・ライフ）が低いからそういう話に<br/>なってくる。<br/>いま、Perlの唐鳳(オードリ・タン)やらMITの伊藤穣一のように<br/>なってしまえば元サッカー日本代表だとかそんなの<br/>どうでもよくなってくるはずだから、<br/></p><p id="ef52d14a-2827-4269-a7a3-4a2cb005c64a" class="">夢の中でも、教えていただける。</p><p id="d724e5a5-3f73-4078-b23d-c2d4a5b5971d" class="">常にシステムのことを考えていると、寝ているときでさえ<br/>他人とディスカッションするハメになる。<br/></p><p id="39389cdd-7d62-4f14-a345-0318b94964b9" class="">こうじゃないか？　こうすると良いのじゃないか。</p><p id="2862da6e-af9e-4edd-9490-8418069b1832" class="">エンジニア研ぎ澄ます病。<br/>だから、夢に教えてられることがある。<br/></p><p id="b4df88c7-744a-44c6-81e7-d57d900f9b50" class="">４万円で３年後にバイクを買う。という人がいた。</p><p id="d98189c9-a357-44c8-aecc-bf5d8b3bb502" class="">いま、買える。と夢の中で教わった。</p><p id="21658834-2dbf-4d3d-ac4e-8b92ffa147f9" class="">「Do or do not! There is no try.」<br/>「やるかやらぬかじゃ、やってみるなどない」<br/>1980年の映画『スター・ウォーズ エピソード5／帝国への逆襲』に<br/>登場するセリフです。<br/></p><p id="0cc86d6f-403f-4985-b113-01c8b07b370b" class="">参考文献</p><p id="2ef96566-c187-421b-a34b-51259f429517" class="">・ハッカーになろう　<a href="https://cruel.org/freeware/hacker.html">https://cruel.org/freeware/hacker.html</a></p><p id="b5525d44-0a0d-441c-b42b-348d67089b64" class="">・普通の奴らの上をいけ　<a href="http://practical-scheme.net/trans/beating-the-averages-j.html">http://practical-scheme.net/trans/beating-the-averages-j.html</a></p><p id="1a30fc50-3c21-4b52-b630-12adf4f8f3ff" class="">飲食店企画書</p><p id="96a5be99-68ae-4e1a-b978-df79cb56ae57" class="">目的<br/>まず、世の中、天才が増えているということだ。<br/></p><p id="652a4959-9c07-4120-8f34-64f967300f3e" class="">例えば、スティーブジョブスは　<br/>果食主義者（果物しか食べない）で、アップルのマークが<br/>リンゴを齧っているマークなのはそのためだ。<br/>洋服なども、いつも同じ、トヨタの制服をイメージしたものだ。<br/></p><p id="1b4063ad-7fbf-4f48-ba8e-c9c0863843f0" class="">その他、チーズバーガーのビルゲイツ</p><p id="7317adf2-8758-4318-93de-d5e4ea3a846d" class="">彼等は、なぜいつも同じ服を着て、同じものを<br/>食べるのか？<br/>マーク・ザックバーグはいう。<br/>『小さな決断で時間を無駄にしたくない』<br/></p><p id="9eea3d79-ddf4-4d0d-afe8-c9e6f6549d31" class="">これはウィルパワーの消耗を<br/>防ぐという科学的に理にかなった<br/>食生活だ。<br/>このような人達が最近増えている。<br/></p><p id="21f1bce4-c2eb-49c9-889f-7a9317a24af4" class="">このような人たちに届ける<br/>デリバリー専門のミャンマーカレー店を行う。<br/></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
 
 
 
 
-      \documentclass[dvipdfmx,autodetect-engine]{jlreq}
 
 
-
-
-
-
-
-      % パッケージの読み込み
-      \usepackage{color}
-      \usepackage{tikz}
-      %\documentclass{article}
-      \usepackage{tcolorbox}
-      \usepackage{lipsum}  % ダミーテキストを生成するためのパッケージ
-      \usepackage{amsmath}
-      
-      
-      
-      
-      \title{
-      
-      
-      
-      
-      
-      \begin{tcolorbox}[colback=black,coltext=white]
-      
-      \begin{large}
-      \centerline{
-      アンドロイド・バザール＆カンファレンス限定配付ディストリビューション
-      }
-      \end{large}
-      
-      \end{tcolorbox}
-      
-      
-      
-      
-      \begin{tcolorbox}[colback=white, colframe=blue, coltext=black]
-      \centerline{
-      "GNU 40th Anniversary"
-      }
-      
-      \centerline{
-      
-      GNU40周年に捧げる
-      
-      }
-      
-      \begin{Huge}
-      \centerline{
-      僕のPCにはいつもGNU's Not Unix!
-      }
-      
-      
-      \centerline{
-      改訂:令和福音編
-      }
-      \end{Huge}
-      \end{tcolorbox}
-      
-      
-      ロードマップのなき
-      
-      永遠のアスリート…。
-      
-      あなたの消えない
-      
-      クリエイティブマインドへ…。
-      
-      
-      %令和を生きる全ての人へ
-      
-      %%\\[2ex]
-      %自身をデプログラミングするために…
-      %デプログラマーになるために…
-      %%\\[2ex]
-      %ネ申 Excelにならないために…
-      
-      %%\\[2ex]
-      %ふりだしに戻ろう…。
-      
-      
-      %2023年11月発行
-      
-      }
-      
-      
-      \author{著者:中島清貴}
-      
-      
-      
-      
-      \begin{document}
-      
-      
-      \maketitle
-      
-      
-      
-      \begin{abstract}
-      乳母車に乗りながら赤ちゃんがスマホのゲームやってて、微笑ましいなぁなどと思ってたのだけれども、
-      意外とこれは恐怖ではないか。タイガーウッズみたいに０歳からゴルフやってますということにもなりかねない。
-      そもそも乳母車に乗った赤ちゃんが自らスマホを選んだわけではなく、親の影響のはずだ。子供にスマホを使わせるかどうか論議されるが、自ら使いたいというなら使えば良いのではないか。しかし友人が使っているからだとか学業で使うだとか時代に乗り遅れるだとかいうのなら使わせない。これではないか。
-      
-      
-      
-      
-      
-      
-      
-      使いたければ使うべきだ。手元にパソコンのOSにカナ漢システムを組み込んだ人の本があって彼が「ITはこれからだ」っていっているのに、Discordの投稿を読んでたら、CADができないことで、どうたらこうたら書いてたけども、インテルPCやらiMacやら出る前からソフトウエア開発やってる７３歳が「これからだ！」っていっているのに、
-      
-      そりゃ建築図面も書けない人が建築CADやるのは、縫いぐるみ知らない人が縫いぐるみCADやるぐらい不可能に近いと思ったのだ。ある意味、原始人に紙とペンを渡して「地図を書いてくれ」といっているぐらい不可能のような。しかし、赤ちゃんに紙とペンを渡して、絵ぐらい描けるだろうというのがこの本の趣旨だ。原始人に紙とペンを渡しても描くものとして認識できないだろうが、普段からクレヨンを渡して落書きさせれば絵を描けるように、原始人にも普段から落書きをさせれば、ペンと紙を渡したら、すこし頭がよくなれば応用力がついてれば、どんな紙でもペンで使いこなすことができるのではないか。だから今回は、まったくのノンプログラマーというか一般向けに大幅に
-      
-      
-      
-      久々にlatexを使ったら新しいクラスファイルが出てて、ちょっと使ってみるかと思って練習用にコードを書いてたら、GNU４０周年のニュースが流れてて、表紙にロードマップなき…と書いておきながらロードマップを書こうとしてしまう性分をなんとかしないといけないと思いつつ、筆をとるというか、万年筆で書いてないが。
-      環境を書いたとしても、独自にマクロだとか入れているから
-      同じ環境になるわけがないのだが、だが読んでるほうは同じことすれば
-      同じ環境になるだろうと思い込んでいるふしがある。そんな簡単に同じ環境を作れるの
-      だったらどっかーだとか出てないでしょうが。認知科学者の苫米地英人教授は
-      「同じ宇宙は二度とこない」ということを述べている。
-      
-      %メーカーだって違うのだから
-      %ＣＰＵもメモリも同じものないはずだ。　マトモな製品名を書いたとしても
-      %ＯＥＭ商品で中国で作っているかもしれないし、韓国、中国かもしれない
-      %まぁ例として出しておくけれども、同じ環境はないぐらい思っておいたほうがいい。
-      
-      \end{abstract}
-      
-      \twocolumn  % 2段組みを開始
-      
-      
-      
-      \section{はじめに}
-      
-      \lipsum[1-5]  % ダミーテキストを生成
-      
-      
-      \begin{center}
-      \begin{tikzpicture}
-      \node[draw,fill=red!20!white,circle] (S) at (0,0) {はじめ};
-      \node[draw,fill=blue!20!white,circle] (G) at (2,2) {おわり};
-      \draw[very thick,->] (S) -- (G);
-      \end{tikzpicture}
-      \end{center}
-      
-      \end{document}
-      
-      
-      
-
-
-
-
-    </code>
-  </pre>
-
-</body>
-</html>
